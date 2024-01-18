@@ -1,0 +1,65 @@
+WidgetExample:
+
+
+<WidgetExample>:
+    cols: 3
+    ToggleButton:
+        text: 'OFF'
+        size_hint: None, 1
+        width: dp(100)
+        on_state: root.on_toggle_state(self)
+    Button: 
+        text: 'Count'
+        on_press: root.on_button_click() 
+        disabled: not root.count_enabled
+    Label:
+        text: root.my_text
+        font_name: 'fonts/Lcd.ttf'
+        font_size: '80dp'
+        color: 1, .5, 1, 1
+    Switch:
+        id: my_switch
+        size_hint: None, 1
+        width: dp(100)
+        active: True
+        on_active: root.on_switch_active(self)
+    Slider:
+        id: my_slider
+        orientation: 'vertical'
+        min: 0
+        max: 100
+        value: 30
+        disabled: not my_switch.active
+        on_value: root.on_slider_value(self)
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: str(int(my_slider.value))
+        ProgressBar:
+            max: 100
+            value: my_slider.value
+    TextInput:
+        id: my_text_input
+        size_hint: None, 1
+        width: dp(100)
+        multiline: False
+        text: 'foo'
+        on_text_validate: root.on_text_validate(self)
+    Label:
+        text: root.text_input
+        
+            
+
+
+<MainWidget>:
+    Button:
+        text: 'Hello'
+        size: '100dp', '80dp'
+        pos: '100dp', '200dp'
+    Label:
+        text:'World'
+        size: '100dp', '80dp'
+        pos: '200dp', '300dp'
+
+
+
