@@ -122,6 +122,11 @@ class CanvasExample5(Widget):
             self.vx = -self.vx
             
         self.ball.pos = (x, y)
+        
+        
+        
+class CanvasExample5(Widget):
+    pass
 
 
 
